@@ -1,3 +1,5 @@
+Nhập username và password
+
 <table>
   <tr>
     <td>
@@ -5,6 +7,8 @@
     </td>
   </tr>
 </table>
+
+Bấm login -> chuyển đến home, hiển thị tên người dùng nhập vào
 
 <table>
   <tr>
