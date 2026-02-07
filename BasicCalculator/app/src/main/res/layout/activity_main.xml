@@ -31,7 +31,8 @@
         android:textSize="30dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:gravity="end"/>
+        android:gravity="end"
+        android:textColor="#333"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -44,7 +45,8 @@
             android:id="@+id/edt.num.a"
             android:inputType="numberDecimal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textColor="#333"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -58,7 +60,8 @@
             android:id="@+id/edt.num.b"
             android:inputType="numberDecimal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textColor="#333"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
