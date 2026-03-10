@@ -1,4 +1,4 @@
-Giao diện app ghi chú
+Giao diện hiển thị danh sách học sinh gồm: avatar, name, email
 
 <table>
   <tr>
@@ -8,7 +8,7 @@ Giao diện app ghi chú
   </tr>
 </table>
 
-Nhấn nút 3 chấm của mỗi item, mở popup menu: chỉnh sửa ghi chú / xóa ghi chú
+Nhấn nút thêm (+), mở dialog thêm học sinh mới
 
 <table>
   <tr>
@@ -18,7 +18,7 @@ Nhấn nút 3 chấm của mỗi item, mở popup menu: chỉnh sửa ghi chú /
   </tr>
 </table>
 
-Dialog sửa nội dung ghi chú
+Nhấn nút 3 chấm của mỗi item, mở popup menu: chỉnh sửa thông tin học sinh / xóa học sinh
 
 <table>
   <tr>
@@ -27,6 +27,8 @@ Dialog sửa nội dung ghi chú
     </td>
   </tr>
 </table>
+
+Dialog sửa thông tin học sinh
 
 <table>
   <tr>
