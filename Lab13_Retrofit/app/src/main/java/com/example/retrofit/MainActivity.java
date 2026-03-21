@@ -2,13 +2,17 @@ package com.example.retrofit;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -17,31 +21,39 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    RecyclerView rvPost;
+    PostAdapter adapter;
+    List<Post> list = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ApiService apiService = RetrofitClient
-                .getRetrofit()
-                .create(ApiService.class);
+        rvPost = findViewById(R.id.rv_post);
+        rvPost.setLayoutManager(new LinearLayoutManager(this));
 
-        apiService.getPosts().enqueue(new Callback<List<Post>>() {
+        adapter = new PostAdapter(list);
+        rvPost.setAdapter(adapter);
+
+        loadData();
+    }
+
+    private void loadData() {
+        ApiService api = RetrofitClient.getRetrofit().create(ApiService.class);
+
+        api.getPosts().enqueue(new Callback<List<Post>>() {
             @Override
             public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                 if (response.isSuccessful()) {
-                    List<Post> posts = response.body();
-
-                    if (posts != null && !posts.isEmpty()) {
-                        Post firstPost = posts.get(0);
-                        Log.d("DATA", firstPost.getTitle());
-                    }
+                    list.addAll(response.body());
+                    adapter.notifyDataSetChanged();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Post>> call, Throwable t) {
-                Log.e("ERROR", t.getMessage());
+                Toast.makeText(MainActivity.this, "Lỗi: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
