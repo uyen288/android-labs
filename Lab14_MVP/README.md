@@ -3,7 +3,7 @@ Giao diện đăng nhập, điền email và password, có thanh progress bar lo
 <table>
   <tr>
     <td>
-      
+      <img src="images/login.png" width="300">
     </td>
   </tr>
 </table>
